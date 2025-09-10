@@ -29,7 +29,7 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: "Start_Button"
+  ui[0]: "Start_Button_N"
   ui[1]: "Loop_Forever"
   ui[2]: ""
   ui[3]: ""
@@ -41,8 +41,8 @@ pinout:
   # Outputs
   uo[0]: "IR_LED_OUT"
   uo[1]: "IR_LED_OUT_N"
-  uo[2]: "ACTIVE_LED"
-  uo[3]: "FAILURE_LED"
+  uo[2]: "ACTIVE_LED_N"
+  uo[3]: "FAILURE_LED_N"
   uo[4]: ""
   uo[5]: ""
   uo[6]: ""
