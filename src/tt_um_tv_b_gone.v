@@ -17,23 +17,27 @@ module tt_um_tv_b_gone (
 );
 
   wire ctc_out;
+  wire active_out;
+  wire failure_out;
 
   tv_b_gone tv_gone (
-    .clock_in(clk),      	      // clock
+    .clock_in(clk),      	        // clock
 
-    .reset_in(!rst_n),      	  // resets internals (synchronous)
+    .reset_in(!rst_n),      	    // resets internals (synchronous)
 
-    .start_in(ui_in[0]),     		// starts working when high (synchronous)
-	  .loop_forever_in(ui_in[1]), // loops codes forever when high (syncronous)
+    .start_in(!ui_in[0]),     	  // starts working when high (synchronous)
+	  .loop_forever_in(ui_in[1]),   // loops codes forever when high (syncronous)
 
-    .busy_out(uo_out[2]),      	// working when high
-    .fail_out(uo_out[3]),      	// failure detected when high
+    .busy_out(uo_out[active_out), // working when high
+    .fail_out(failure_out),      	// failure detected when high
 
-    .ctc_out(ctc_out)			      // IR LED driving
+    .ctc_out(ctc_out)			        // IR LED driving
 );
 
   assign uo_out[0] = ctc_out;
   assign uo_out[1] = ~ctc_out;
+  assign uo_out[2] = ~active_out;
+  assign uo_out[3] = ~failure_out;
 
   // All output pins must be assigned. If not used, assign to 0.
   assign uo_out[7:4] = ui_in[7:4];
