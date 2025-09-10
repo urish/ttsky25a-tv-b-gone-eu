@@ -23,7 +23,7 @@ project:
     - "TV-B-Gone_ICE40/src/delay_timer.sv"
     - "TV-B-Gone_ICE40/src/tv_b_gone.sv"
     - "TV-B-Gone_ICE40/src/tv_codes_rom.sv"
-    - "TV-B-Gone_ICE40/src/tt_um_tv_b_gone.v"
+    - "tt_um_tv_b_gone.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
