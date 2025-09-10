@@ -5,13 +5,17 @@
 SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = project.v
+PROJECT_SOURCES = tt_um_tv_b_gone.v
+MODULE_SRC_DIR = $(PWD)/../src/TV-B-Gone_ICE40/src
+MODULE_SRC = btn_debouncer.sv controller.sv ctc_generator.sv delay_timer.sv tv_b_gone.sv tv_codes_rom.sv
 
 ifneq ($(GATES),yes)
 
 # RTL simulation:
 SIM_BUILD				= sim_build/rtl
 VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
+VERILOG_SOURCES += $(addprefix $(MODULE_SRC_DIR)/,$(MODULE_SRC))
+COMPILE_ARGS 	+= -I$(MODULE_SRC_DIR) -I$(SRC_DIR)
 
 else
 
