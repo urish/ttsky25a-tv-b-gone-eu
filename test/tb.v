@@ -27,7 +27,7 @@ module tb ();
   wire VGND = 1'b0;
 `endif
 
-  tt_um_tv_b_gone (
+  tt_um_tv_b_gone tt_tv_b_gone (
 
       // Include power ports for the Gate Level test:
 `ifdef GL_TEST
